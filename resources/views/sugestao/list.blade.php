@@ -2,8 +2,15 @@
 @section('conteudo')
 @section('titulo', 'Listagem de Sugestão')
 
-<h3>Listagem de Sugestão</h3>
-
+<div style="background: linear-gradient(to bottom, #853609, #deac6a); color: white; height: 200px; display: flex; justify-content: center; align-items: center; border-radius: 15px; font-family: Arial, sans-serif;">
+    <div>
+        <h1 style="margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Deixe sua sugestão, crítica ou comentário:</h1>
+    </div>
+</div>
+<div>
+<br>
+<br>
+</div>
 <form action="{{ route('sugestao.search') }}" method="post">
     <div class="row mb-3">
         @csrf
@@ -11,7 +18,7 @@
             <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome">
         </div>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-primary" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-magnifying-glass" ></i> Buscar</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             <a href="{{ url('sugestao/create') }}" class="btn btn-success" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-plus"></i> Novo</a>
         </div>
     </div>
@@ -20,52 +27,32 @@
 <hr>
 
 <div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nome</th>
-                                <th>Avaliação</th>
-                                <th>Sugestão</th>
-                                <th>Tipo de Sugestão</th>
-                                <th>Ação</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($dados as $item)
-                                <tr>
-                                    <td>{{ $item->id }}</td>
-                                    <td>{{ $item->nome }}</td>
-                                    <td>{{ $item->avaliacao }}</td>
-                                    <td>{{ $item->sugestao }}</td>
-                                    <td>{{ $item->tiposugestao->nome ?? '' }}</td>
-                                    <td>
-                                        <a href="{{ route('sugestao.edit', $item->id) }}" class="btn btn-outline-primary" title="Editar">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <form action="{{ route('sugestao.destroy', $item) }}" method="post">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-outline-danger " title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+    @foreach ($dados as $item)
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $item->nome }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Tipo: {{ $item->tiposugestao->nome ?? '' }}</h6>
+                    <p class="card-text">
+                        <strong>Avaliação:</strong> {{ $item->avaliacao }}
+                    </p>
+                    <p class="card-text">{{ $item->sugestao }}</p>
+                    <div class="btn-group" role="group" aria-label="Ações">
+                        <a href="{{ route('sugestao.edit', $item->id) }}" class="btn btn-outline-primary" style="background-color: #853609; color: #deac6a;" title="Editar">
+                            Editar
+                        </a>
+                        <form action="{{ route('sugestao.destroy', $item) }}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger" style="background-color: #853609; color: #deac6a;" title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
+                                Excluir
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
 </div>
 
 @stop

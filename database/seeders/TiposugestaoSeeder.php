@@ -13,8 +13,8 @@ class TiposugestaoSeeder extends Seeder
      */
     public function run(): void
     {
-        Tiposugestao::create(['nome' => 'Sugestao']);
-        Tiposugestao::create(['nome' => 'Critica']);
-        Tiposugestao::create(['nome' => 'Comentario']);
+        Tiposugestao::create(['nome' => 'Sugestão']);
+        Tiposugestao::create(['nome' => 'Crítica']);
+        Tiposugestao::create(['nome' => 'Comentário']);
     }
 }

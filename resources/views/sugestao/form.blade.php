@@ -27,8 +27,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="avaliacao" class="form-label">Avaliação (1 a 10)</label>
-        <input type="number" name="avaliacao" id="avaliacao" class="form-control" min="1" max="10" value="@if (!empty($dado->avaliacao)) {{ $dado->avaliacao }}@elseif (!empty(old('avaliacao'))){{ old('avaliacao') }}@else{{ '' }} @endif">
+        <label for="avaliacao" class="form-label">Avaliação (1 a 5)</label>
+        <input type="number" name="avaliacao" id="avaliacao" class="form-control" min="1" max="5" value="@if (!empty($dado->avaliacao)) {{ $dado->avaliacao }}@elseif (!empty(old('avaliacao'))){{ old('avaliacao') }}@else{{ '' }} @endif">
     </div>
 
     <div class="mb-3">
