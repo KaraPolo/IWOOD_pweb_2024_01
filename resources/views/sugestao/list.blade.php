@@ -11,8 +11,8 @@
             <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome">
         </div>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-            <a href="{{ url('sugestao/create') }}" class="btn btn-success"><i class="fa-solid fa-plus"></i> Novo</a>
+            <button type="submit" class="btn btn-primary" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-magnifying-glass" ></i> Buscar</button>
+            <a href="{{ url('sugestao/create') }}" class="btn btn-success" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-plus"></i> Novo</a>
         </div>
     </div>
 </form>
@@ -53,7 +53,7 @@
                                         <form action="{{ route('sugestao.destroy', $item) }}" method="post">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-outline-danger" title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
+                                            <button type="submit" class="btn btn-outline-danger " title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </button>
                                         </form>

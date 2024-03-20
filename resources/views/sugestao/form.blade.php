@@ -45,8 +45,8 @@
         </select>
     </div>
 
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <a href="{{ url('sugestao') }}" class="btn btn-primary">Voltar</a>
+    <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
+    <a href="{{ url('sugestao') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>
 </form>
 
 @stop

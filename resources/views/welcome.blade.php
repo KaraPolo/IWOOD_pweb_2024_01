@@ -44,7 +44,7 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5PWso3A4ljhqYf0Q44ROIT2WbEuNebSchTMB-LqOgbA&s" class="d-block w-100 carousel-image" alt="...">
+            <img src="https://emobile.com.br/site/wp-content/uploads/2022/03/Dia-do-Marceneiro-Marcenaria-formao.jpg" class="d-block w-100 carousel-image" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Conheça e Explore nosso Site:</h5>
                 <p>Aqui, talento encontra demanda, e juntos criamos obras de arte.</p>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="https://maridodealuguel.com.br/wp-content/uploads/2021/12/Marceceiro-marcenaria-moveis-planejados.jpeg" class="d-block w-100 carousel-image" alt="...">
+            <img src="https://cdn.pixabay.com/photo/2018/04/22/04/28/wood-3340125_1280.jpg" class="d-block w-100 carousel-image" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Conheça e Explore nosso Site:</h5>
                 <p>Juntos, construímos mais do que apenas casas - construímos lares.</p>
