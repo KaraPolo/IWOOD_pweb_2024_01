@@ -23,3 +23,5 @@ Route::post('/estabelecimento/search', [EstabelecimentoController::class, "searc
 
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class, "search"])->name('sugestao.search');
+
+//teste
