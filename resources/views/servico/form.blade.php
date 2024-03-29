@@ -27,16 +27,19 @@
 
     <label for="">Telefone</label><br>
     <input type="text" name="contato" class="form-control"
-        value="@if (!empty($dado->xon)) {{ $dado->contato }}@elseif (!empty(old('contato'))){{ old('contato') }}@else{{ '' }} @endif"><br>
+        value="@if (!empty($dado->contato)) {{ $dado->contato }}@elseif (!empty(old('contato'))){{ old('contato') }}@else{{ '' }} @endif"><br>
+
+    <label for="">Email</label><br>
+    <input type="text" name="email" class="form-control"
+        value="@if (!empty($dado->email)) {{ $dado->email }}@elseif (!empty(old('email'))){{ old('email') }}@else{{ '' }} @endif"><br>
 
     <label for="">Descrição do serviço</label><br>
     <input type="text" name="detalhamento" class="form-control"
         value="@if (!empty($dado->detalhamento)) {{ $dado->detalhamento }}@elseif (!empty(old('detalhamento'))){{ old('detalhamento') }}@else{{ '' }} @endif"><br>
 
-    <label for="">Imagem (URL)</label><br> <!-- Alteração feita aqui -->
-    <input type="text" name="imagem" class="form-control"
-        value="@if (!empty($dado->imagem)) {{ $dado->imagem}}@elseif (!empty(old('imagem'))){{ old('imagem') }}@else{{ '' }} @endif"><br>
-
+    <label for="">Valor Estimado</label><br>
+    <input type="text" name="valor_estimado" class="form-control"
+        value="@if (!empty($dado->valor_estimado)) {{ $dado->valor_estimado }}@elseif (!empty(old('valor_estimado'))){{ old('valor_estimado') }}@else{{ '' }} @endif"><br>
 
     <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
     <a href="{{ url('servico') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>

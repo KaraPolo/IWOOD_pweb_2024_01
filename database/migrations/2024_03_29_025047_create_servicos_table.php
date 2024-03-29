@@ -16,8 +16,9 @@ return new class extends Migration
             $table->id();
             $table->string('nome',100);
             $table->string("contato",20);
+            $table->string("email",200);
             $table->string("detalhamento",300);
-            $table->string("imagem",300);
+            $table->string("valor_estimado",100);
             $table->timestamps();
         });
     }

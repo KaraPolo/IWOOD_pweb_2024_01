@@ -23,11 +23,11 @@ CREATE TABLE IF NOT EXISTS `categorias` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.categorias: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela marcenaria_2024.categorias: ~0 rows (aproximadamente)
 INSERT INTO `categorias` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-	(1, 'Marcenaria', '2024-03-29 22:24:57', '2024-03-29 22:24:57'),
-	(2, 'Carpintaria', '2024-03-29 22:24:57', '2024-03-29 22:24:57'),
-	(3, 'Freelancer', '2024-03-29 22:24:57', '2024-03-29 22:24:57');
+	(1, 'Marcenaria', '2024-03-30 02:04:33', '2024-03-30 02:04:33'),
+	(2, 'Carpintaria', '2024-03-30 02:04:33', '2024-03-30 02:04:33'),
+	(3, 'Freelancer', '2024-03-30 02:04:33', '2024-03-30 02:04:33');
 
 -- Copiando estrutura para tabela marcenaria_2024.estabelecimentos
 CREATE TABLE IF NOT EXISTS `estabelecimentos` (
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `estabelecimentos` (
   CONSTRAINT `estabelecimentos_categoria_id_foreign` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.estabelecimentos: ~8 rows (aproximadamente)
+-- Copiando dados para a tabela marcenaria_2024.estabelecimentos: ~0 rows (aproximadamente)
 INSERT INTO `estabelecimentos` (`id`, `nome`, `descricao`, `imagem`, `telefone`, `created_at`, `updated_at`, `categoria_id`) VALUES
 	(1, 'Carpintaria Artesanal', 'Na Madeira & Arte, combinamos habilidades artesanais com tecnologia moderna para criar móveis de alta qualidade que refletem elegância e sofisticação. Nosso compromisso com a excelência é evidente em cada detalhe, desde o design até a finalização.', 'https://cptstatic.s3.amazonaws.com/imagens/enviadas/materias/materia12725/o-que-faz-um-marceneiro-cpt.jpg', '+55 49 99999-9999', '2024-03-17 21:26:07', '2024-03-17 21:29:38', 2),
 	(2, 'Madeira & Arte Marcenaria', 'Na busca pela sustentabilidade, a Oficina da Madeira utiliza apenas madeira proveniente de fontes responsáveis ​​e práticas eco-friendly em todo o processo de produção. Nosso foco é criar móveis duráveis, belos e que respeitem o meio ambiente.', 'https://artedamarcenariamoderna.com.br/wp-content/uploads/2017/07/profiss%C3%A3o-marceneiro.png', '+55 49 99999-8888', '2024-03-17 21:28:04', '2024-03-17 21:29:23', 1),
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.migrations: ~11 rows (aproximadamente)
+-- Copiando dados para a tabela marcenaria_2024.migrations: ~0 rows (aproximadamente)
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
 	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
@@ -126,23 +126,23 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contato` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `detalhamento` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `imagem` varchar(300) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `valor_estimado` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.servicos: ~8 rows (aproximadamente)
-INSERT INTO `servicos` (`id`, `nome`, `contato`, `detalhamento`, `imagem`, `created_at`, `updated_at`) VALUES
-	(1, 'Brad Pitt', '+55 49 1111-1111', 'Arrumar o chuveiro', 'https://i0.wp.com/www.guiamuriae.com.br/wp-content/uploads/2016/05/Carpinteiro-Foto-Pixabay.jpg', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
-	(2, 'Ashton Kutcher', '+55 49 2222-2222', 'Construção de armários', 'https://www.cec.com.br/files/blog/posts/2022/06_jun/13062022/armarios-cozinha_700x409_1.png', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
-	(3, 'Tom Cruise', '+55 49 3333-3333', 'Reparação de portas', 'https://portasemadeirasgralhaazul.com.br/wp-content/uploads/2023/07/every-onlilnee-9SxI_VloA2g-unsplash-1.jpg', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
-	(4, 'Vin Diesel', '+55 49 4444-4444', 'Conserto de móveis', 'https://media-cdn.tripadvisor.com/media/photo-s/07/19/c2/9d/aquaville-resort.jpg', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
-	(5, 'Agenor de Miranda Araújo Neto', '+55 49 5555-5555', 'Arrumar o chuveiro', 'https://midias.jornalcruzeiro.com.br/wp-content/uploads/2021/01/chuveiro-547x364.jpg', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
-	(6, 'Farrokh Bulsara', '+55 49 6666-6666', 'Instalação de novos pisos de madeira', 'https://roidigital.com.br/a_pisopisoartes_sitepro/wp-content/uploads/instalacao.jpg', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
-	(7, 'Paolla Oliveira', '+55 49 7777-7777', 'Reparação do deck de madeira', 'https://pegaefaz.com.br/wp-content/uploads/2023/12/deck-madeira2-1024x683.jpg', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
-	(8, 'Allana', '+55 49 8888-8888', 'Criação de esculturas', 'https://www.awebic.com/wp-content/uploads/2017/09/esculturas-escala-real-1122x589.jpg', '2024-03-20 18:55:45', '2024-03-20 18:55:45');
+-- Copiando dados para a tabela marcenaria_2024.servicos: ~0 rows (aproximadamente)
+INSERT INTO `servicos` (`id`, `nome`, `contato`, `email`, `detalhamento`, `valor_estimado`, `created_at`, `updated_at`) VALUES
+	(1, 'Brad Pitt', '+55 49 1111-1111', 'bradpitt@gmail.com', 'Arrumar o chuveiro', '100', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
+	(2, 'Ashton Kutcher', '+55 49 2222-2222', 'ashtonkutcher@gmail.com', 'Construção de armários', '90', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
+	(3, 'Tom Cruise', '+55 49 3333-3333', 'tomcruise@gmail.com', 'Reparação de portas', '80', '2024-03-18 23:49:45', '2024-03-18 23:49:45'),
+	(4, 'Vin Diesel', '+55 49 4444-4444', 'vindisel@gmail.com', 'Conserto de móveis', '60', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
+	(5, 'Agenor de Miranda Araújo Neto', '+55 49 5555-5555', 'agenormiranda@gmail.com', 'Arrumar o chuveiro', '60', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
+	(6, 'Farrokh Bulsara', '+55 49 6666-6666', 'farrokhbulsara@gmail.com', 'Instalação de novos pisos de madeira', '60', '2024-03-20 18:55:45', '2024-03-20 18:55:45'),
+	(7, 'Paolla Oliveira', '+55 49 7777-7777', 'paollaoliveira@gmail.com', 'Reparação do deck de madeira', '60', '2024-03-20 18:55:45', '2024-03-20 18:55:45');
 
 -- Copiando estrutura para tabela marcenaria_2024.sugestaos
 CREATE TABLE IF NOT EXISTS `sugestaos` (
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `sugestaos` (
   CONSTRAINT `sugestaos_tiposugestao_id_foreign` FOREIGN KEY (`tiposugestao_id`) REFERENCES `tiposugestaos` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.sugestaos: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela marcenaria_2024.sugestaos: ~0 rows (aproximadamente)
 INSERT INTO `sugestaos` (`id`, `nome`, `sugestao`, `avaliacao`, `created_at`, `updated_at`, `tiposugestao_id`) VALUES
 	(1, 'Fábio Augusto Fagundes', 'Site Bacana.', '5', '2024-03-20 21:26:07', '2024-03-20 21:29:38', 2),
 	(2, 'Pedro de Oliveira', 'Eu achei o site bacana, mas seria bacana se tivessem mais profissionais', '4', '2024-03-20 21:26:07', '2024-03-20 21:29:38', 1);
@@ -172,11 +172,11 @@ CREATE TABLE IF NOT EXISTS `tiposugestaos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.tiposugestaos: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela marcenaria_2024.tiposugestaos: ~0 rows (aproximadamente)
 INSERT INTO `tiposugestaos` (`id`, `nome`, `created_at`, `updated_at`) VALUES
-	(1, 'Sugestão', '2024-03-29 22:24:57', '2024-03-29 22:24:57'),
-	(2, 'Crítica', '2024-03-29 22:24:57', '2024-03-29 22:24:57'),
-	(3, 'Comentário', '2024-03-29 22:24:57', '2024-03-29 22:24:57');
+	(1, 'Sugestão', '2024-03-30 02:04:33', '2024-03-30 02:04:33'),
+	(2, 'Crítica', '2024-03-30 02:04:33', '2024-03-30 02:04:33'),
+	(3, 'Comentário', '2024-03-30 02:04:33', '2024-03-30 02:04:33');
 
 -- Copiando estrutura para tabela marcenaria_2024.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -190,11 +190,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela marcenaria_2024.users: ~1 rows (aproximadamente)
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Administrador', 'admin@admin.com', NULL, '$2y$12$S0pGP7gv5e/wB/bal6A6gexRXzutjSXIsevJ5vQBXOdK3IfmcWzz.', NULL, '2024-03-29 22:35:21', '2024-03-29 22:35:21');
+-- Copiando dados para a tabela marcenaria_2024.users: ~0 rows (aproximadamente)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

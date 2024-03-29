@@ -32,25 +32,26 @@ class ServicoController extends Controller
         $request->validate([
             'nome' => "required|max:100",
             'contato' => "nullable",
+            'email' => "required|max:200",
+            'valor_estimado' => "nullable",
             'detalhamento' => "required|max:300",
-            'imagem' => "required|max:300",
             
             
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
+            'email.max' => "Só é permitido 200 caracteres",
             'detalhamento.required' => "O :attribute é obrigatório",
             'detalhamento.max' => "Só é permitido 300 caracteres",
-            'imagem.required' => "O :attribute é obrigatório",
-            'imagem.max' => "Só é permitido 300 caracteres",
         ]);
 
         Servico::create(
             [
                 'nome' => $request->nome,
                 'contato' => $request->contato,
+                'email' => $request->email,
                 'detalhamento' => $request->detalhamento,
-                'imagem' => $request->imagem,
+                'valor_estimado'=> $request->valor_estimado,
             ]
         );
         return redirect('servico');
@@ -86,25 +87,26 @@ class ServicoController extends Controller
         $request->validate([
             'nome' => "required|max:100",
             'contato' => "nullable",
+            'email' => "required|max:200",
+            'valor_estimado' => "nullable",
             'detalhamento' => "required|max:300",
-            'imagem' => "required|max:2000",
             
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
+            'email.max' => "Só é permitido 200 caracteres",
             'detalhamento.required' => "O :attribute é obrigatório",
             'detalhamento.max' => "Só é permitido 300 caracteres",
-            'imagem.required' => "O :attribute é obrigatório",
-            'imagem.max' => "Só é permitido 300 caracteres",
         ]);
 
         Servico::updateOrCreate(
             ['id' => $request->id],
             [
                 'nome' => $request->nome,
-                'contato' => $request->telefone,
+                'contato' => $request->contato,
+                'email' => $request->email,
                 'detalhamento' => $request->detalhamento,
-                'imagem' => $request->imagem,
+                'valor_estimado'=> $request->valor_estimado,
             ]
         );
 

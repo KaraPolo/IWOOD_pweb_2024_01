@@ -34,20 +34,14 @@
 <div class="row">
     @foreach ($dados as $item)
         <div class="col-md-3 mb-3">
-            <div class="card" style="height: 600px; background-color: #f4f4f4;">
-                @if ($item->imagem)
-                    <img src="{{ $item->imagem }}" class="card-img-top" alt="Imagem do servico" style="height: 300px; object-fit: cover;">
-                @else
-                    <div class="alert alert-warning" role="alert">
-                        Imagem indisponível
-                    </div>
-                @endif
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item->nome }}</h5>
+            <div class="card" style="height: 270px; background-color: #f4f4f4;">
+                <div class="card-body" style="text-align: left;">
+                <h5 class="card-title text-center">{{ $item->nome }}</h5>
                     <p class="card-text">
                         <strong>Contato:</strong> {{ $item->contato }}<br>
-                        <strong>Descrição:</strong> {{ $item->detalhamento }}<br>
-                        <strong>Descrição:</strong> Marcenaria
+                        <strong>Detalhadamento:</strong> {{ $item->detalhamento }}<br>
+                        <strong>Email:</strong> {{ $item->email }}<br>
+                        <strong>Valor Estimado:</strong> R${{ $item->valor_estimado }}<br>
                     </p>
                 </div>
                 <div class="card-footer text-center">
