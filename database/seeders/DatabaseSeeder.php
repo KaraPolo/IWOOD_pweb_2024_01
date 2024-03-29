@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             EstabelecimentoSeeder::class,
             TiposugestaoSeeder::class,
             SugestaoSeeder::class,
+            ServicoSeeder::class,
 
         ]);
         // \App\Models\User::factory(10)->create();
