@@ -16,6 +16,9 @@ Route::post('/estabelecimento/search', [EstabelecimentoController::class, "searc
 Route::resource('servico', ServicoController::class);
 Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
 
+Route::resource('servico', ServicoController::class);
+Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
+
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class, "search"])->name('sugestao.search');
 

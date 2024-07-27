@@ -57,7 +57,13 @@
                 <a class="nav-link" href="{{ url('servico') }}">Serviços</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
+                <a class="nav-link" href="{{ url('orcamento') }}">Orçamento</a>
+            </li>
+            <li class="nav-item">
+                        <a class="nav-link" href="{{ url('sugestao') }}">Sugestões</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('blog') }}">Blog</a>
             </li>
         </ul>
         <!--<ul class="navbar-nav flex-row">
