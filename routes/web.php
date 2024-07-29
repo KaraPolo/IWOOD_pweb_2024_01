@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EstabelecimentoController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrcamentoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -16,8 +17,8 @@ Route::post('/estabelecimento/search', [EstabelecimentoController::class, "searc
 Route::resource('servico', ServicoController::class);
 Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
 
-Route::resource('servico', ServicoController::class);
-Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
+Route::resource('orcamento', OrcamentoController::class);
+Route::post('/orcamento/search', [OrcamentoController::class, "search"])->name('orcamento.search');
 
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class, "search"])->name('sugestao.search');
