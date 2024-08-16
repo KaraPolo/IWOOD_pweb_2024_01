@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('endereco', 200);
             $table->string('descricao_projeto', 300);
             $table->string('tipo_madeira', 100);
-            $table->string('dimensoes_projeto', 100);
             $table->integer('quantidade_unidades');
             $table->string('observacao', 500)->nullable();
+            $table->string('imagem_projeto', 255)->nullable();
             $table->timestamps();
         });
     }

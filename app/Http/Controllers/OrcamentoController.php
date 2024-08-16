@@ -14,17 +14,11 @@ class OrcamentoController extends Controller
         return view("orcamento.list", ["dados" => $dados]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view("orcamento.form");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -33,9 +27,9 @@ class OrcamentoController extends Controller
             'endereco' => "required|max:200",
             'descricao_projeto' => "required|max:300",
             'tipo_madeira' => "required|max:100",
-            'dimensoes_projeto' => "required|max:100",
-            'quantidade_unidades' => "required|integer",
+            'quantidade_unidades' => "required|max:100",
             'observacao' => "nullable|max:500",
+            'imagem_projeto' => 'required|max:2048',
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -45,34 +39,29 @@ class OrcamentoController extends Controller
             'endereco.max' => "Só é permitido 200 caracteres",
             'descricao_projeto.required' => "O :attribute é obrigatório",
             'descricao_projeto.max' => "Só é permitido 300 caracteres",
+            'imagem_projeto.required' => "A imagem do projeto é obrigatória",
+            'imagem_projeto.max' => "O arquivo deve ter no máximo 2MB",
         ]);
 
-        Orcamento::create(
-            [
-                'nome' => $request->nome,
-                'contato' => $request->contato,
-                'endereco' => $request->endereco,
-                'descricao_projeto' => $request->descricao_projeto,
-                'tipo_madeira' => $request->tipo_madeira,
-                'dimensoes_projeto' => $request->dimensoes_projeto,
-                'quantidade_unidades' => $request->quantidade_unidades,
-                'observacao' => $request->observacao,
-            ]
-        );
-        return redirect('Orcamento');
+        Orcamento::firstOrCreate([
+            'nome' => $request->nome,
+            'contato' => $request->contato,
+            'endereco' => $request->endereco,
+            'descricao_projeto' => $request->descricao_projeto,
+            'tipo_madeira' => $request->tipo_madeira,
+            'quantidade_unidades' => $request->quantidade_unidades,
+            'observacao' => $request->observacao,
+            'imagem_projeto' => $request->imagem_projeto,
+        ]);
+
+        return redirect('orcamento');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $dado = Orcamento::findOrFail($id);
@@ -82,9 +71,6 @@ class OrcamentoController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -93,9 +79,9 @@ class OrcamentoController extends Controller
             'endereco' => "required|max:200",
             'descricao_projeto' => "required|max:300",
             'tipo_madeira' => "required|max:100",
-            'dimensoes_projeto' => "required|max:100",
-            'quantidade_unidades' => "required|integer",
+            'quantidade_unidades' => "required|max:100",
             'observacao' => "nullable|max:500",
+            'imagem_projeto' => 'required|max:2048',
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -105,51 +91,45 @@ class OrcamentoController extends Controller
             'endereco.max' => "Só é permitido 200 caracteres",
             'descricao_projeto.required' => "O :attribute é obrigatório",
             'descricao_projeto.max' => "Só é permitido 300 caracteres",
+            'imagem_projeto.required' => "A imagem do projeto é obrigatória",
+            'imagem_projeto.max' => "O arquivo deve ter no máximo 2MB",
         ]);
 
-        Orcamento::updateOrCreate(
-            ['id' => $request ->id],
-            [
-                'nome' => $request->nome,
-                'contato' => $request->contato,
-                'endereco' => $request->endereco,
-                'descricao_projeto' => $request->descricao_projeto,
-                'tipo_madeira' => $request->tipo_madeira,
-                'dimensoes_projeto' => $request->dimensoes_projeto,
-                'quantidade_unidades' => $request->quantidade_unidades,
-                'observacao' => $request->observacao,
-            ]
-        );
+        $orcamento = Orcamento::findOrFail($id);
+        $orcamento->update([
+            'nome' => $request->nome,
+            'contato' => $request->contato,
+            'endereco' => $request->endereco,
+            'descricao_projeto' => $request->descricao_projeto,
+            'tipo_madeira' => $request->tipo_madeira,
+            'quantidade_unidades' => $request->quantidade_unidades,
+            'observacao' => $request->observacao,
+            'imagem_projeto' => $request->imagem_projeto,
+        ]);
 
-        return redirect('Orcamento');
+        return redirect('orcamento');
     }
 
-    /**
- * Remove the specified resource from storage.
- */
-public function destroy($id)
-{
-    $dado = Orcamento::findOrFail($id);
-    $dado->delete();
+    public function destroy(string $id)
+    {
+        $orcamento = Orcamento::findOrFail($id);
+        $orcamento->delete();
 
-    return redirect('orcamento');
-}
-
-/**
- * Search for resources.
- */
-public function search(Request $request)
-{
-    if (!empty($request->nome)) {
-        $dados = Orcamento::where(
-            "nome",
-            "like",
-            "%". $request->nome. "%"
-        )->get();
-    } else {
-        $dados = Orcamento::all();
+        return redirect('orcamento');
     }
 
-    return view("orcamento.list", ["dados" => $dados]);
-}
+    public function search(Request $request)
+    {
+        if (!empty($request->nome)) {
+            $dados = Orcamento::where(
+                "nome",
+                "like",
+                "%" . $request->nome . "%"
+            )->get();
+        } else {
+            $dados = Orcamento::all();
+        }
+
+        return view("orcamento.list", ["dados" => $dados]);
+    }
 }

@@ -38,15 +38,13 @@
                 <div class="card-body" style="text-align: left;">
                 <h5 class="card-title text-center">{{ $item->cliente }}</h5>
                     <p class="card-text">
-                        <strong>Descricao:</strong> {{ $item->descricao }}<br>
-                        <strong>Valor:</strong> R${{ $item->valor }}<br>
-                        <strong>Prazo_entrega:</strong> {{ $item->prazo_entrega }}<br>
-                        <strong>Arquivos:</strong>
-                        @if($item->arquivos)
-                            @foreach(json_decode($item->arquivos) as $arquivo)
-                                <a href="{{ asset('storage/'. $arquivo) }}" target="_blank">{{ $arquivo }}</a><br>
-                            @endforeach
-                        @endif
+                        <strong>Nome:</strong> {{ $item->nome }}<br>
+                        <strong>Contato:</strong> R${{ $item->contato }}<br>
+                        <strong>Endereço:</strong> {{ $item->endereco }}<br>
+                        <strong>Descrição do Projeto:</strong> {{ $item->descricao_projeto }}<br>
+                        <strong>Tipo de Madeira:</strong> {{ $item->tipo_madeira }}<br>
+                        <strong>Quantidade:</strong> {{ $item->quantidade_unidades }}<br>   
+                        <strong>Imagem do Projeto:</strong><img src="{{ asset('storage/' . $item->imagem_projeto) }}" alt="Imagem do Projeto" width="100" height="100">                 
                     </p>
                 </div>
                 <div class="card-footer text-center">

@@ -16,10 +16,13 @@ class OrcamentoSeeder extends Seeder
             [
                 'id' => 1,
                 'nome' => 'Brad Pitt',
-                'detalhamento' => 'Arrumar o chuveiro',
                 'contato' => '+55 49 1111-1111',
-                'email' => 'bradpitt@gmail.com',
-                'valor_estimado'=> '100',
+                'endereco' => 'Rua Humberto Bertolo Decesaro',
+                'descricao_projeto' => 'Arrumar meu roupeiro',
+                'tipo_madeira' => 'Pinos',
+                'quantidade_unidades' => '3',
+                'observacao' => 'Nada',
+                'imagem_projeto' => 'imagem_exemplo.jpg', //mudar aaqui
                 'created_at' => '2024-03-18 20:49:45',
                 'updated_at' => '2024-03-18 20:49:45',
             ],

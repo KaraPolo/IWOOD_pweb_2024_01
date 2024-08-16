@@ -17,7 +17,8 @@
             <div class="card" style="margin-top: 50px; margin-bottom: 50px;">
                 <div class="card-body" style="padding: 30px;">
                     <h3 style="text-align: center;">Faça seu Orçamento</h3>
-                    <form action="{{ $route }}" method="post" enctype="multipart/form-data">
+
+                    <form action="{{ $route }}" method="post">
                         @csrf
                         @if (!empty($dado->id))
                             @method('put')
@@ -52,22 +53,23 @@
                         </div>
 
                         <div class="form-group" style="margin-bottom: 20px;">
-                            <label for="">Dimensões do projeto (L x A x P)</label>
-                            <input type="text" name="dimensoes_projeto" class="form-control" value="@if (!empty($dado->dimensoes_projeto)) {{ $dado->dimensoes_projeto }}@elseif (!empty(old('dimensoes_projeto'))){{ old('dimensoes_projeto') }}@else{{ '' }} @endif">
-                        </div>
-
-                        <div class="form-group" style="margin-bottom: 20px;">
                             <label for="">Quantidade de unidades</label>
                             <input type="number" name="quantidade_unidades" class="form-control" value="@if (!empty($dado->quantidade_unidades)) {{ $dado->quantidade_unidades }}@elseif (!empty(old('quantidade_unidades'))){{ old('quantidade_unidades') }}@else{{ '' }} @endif">
                         </div>
 
                         <div class="form-group" style="margin-bottom: 20px;">
                             <label for="">Observação</label>
-                            <textarea name="observacao" class="form-control" rows="5">@if (!empty($dado->observacao)) {{ $dado->observacao }}@elseif (!empty(old('observacao'))){{ old('observacao') }}@else{{ '' }} @endif</textarea>
+                            <textarea name="observacao" class="form-control" rows="5">@if (!empty($dado->observacao)) {{ $dado->observacao }} @elseif (!empty(old('observacao'))){{ old('observacao') }} @else {{ '' }} @endif </textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label for="">Imagem do Projeto</label>
+                            <input type="file" name="imagem_projeto" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
                             <a href="{{ url('orcamento') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>
                         <button type="button" class="btn btn-primary" style="background-color: #853609; color: #deac6a;" onclick="downloadPdf()">Download em PDF</button>
+                    </form>      
                 </div>
             </div>
         </div>

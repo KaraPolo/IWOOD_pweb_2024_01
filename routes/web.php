@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SugestaoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SugestaoController;
 use App\Http\Controllers\EstabelecimentoController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\ProfileController;
