@@ -11,19 +11,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('estabelecimento', EstabelecimentoController::class);
 Route::post('/estabelecimento/search', [EstabelecimentoController::class, "search"])->name('estabelecimento.search');
-
 Route::get('/estabelecimento/chart', [EstabelecimentoController::class, 'chart'])->name('estabelecimento.chart');
+Route::resource('estabelecimento', EstabelecimentoController::class);
 
-Route::resource('servico', ServicoController::class);
+
 Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
-
 Route::get('/servico/chart', [ServicoController::class, 'chart'])->name('servico.chart');
+Route::resource('servico', ServicoController::class);
 
-Route::resource('orcamento', OrcamentoController::class);
 Route::post('/orcamento/search', [OrcamentoController::class, "search"])->name('orcamento.search');
 Route::get('/orcamento/PDFOrcamento/',[OrcamentoController::class, "PDFOrcamento"])->name('orcamento.PDFOrcamento');
+Route::resource('orcamento', OrcamentoController::class);
 
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class, "search"])->name('sugestao.search');

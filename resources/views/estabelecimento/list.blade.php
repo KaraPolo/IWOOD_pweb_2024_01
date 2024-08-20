@@ -29,6 +29,12 @@
                 <a href="{{ url('estabelecimento/create') }}" class="btn btn-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin-left: 10px;">
                     <i class="fa-solid fa-plus"></i> Novo
                 </a>
+                <a href="{{ route('estabelecimento.chart') }}" class="btn btn-primary rounded-pill" title="Ver Gráfico" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
+                    <i class="fa-solid fa-chart-bar"></i>
+                </a>
+                <a href="{{ url('orcamento/PDFOrcamento') }}" class="btn btn-outline-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
             </div>
         </div>
     </form>
@@ -67,9 +73,6 @@
                 <i class="fa-solid fa-trash-can"></i>
             </button>
         </form>
-        <a href="{{ route('estabelecimento.chart') }}" class="btn btn-primary rounded-pill" title="Ver Gráfico" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
-            <i class="fa-solid fa-chart-bar"></i>
-        </a>
     </div>
 </div>
             </div>

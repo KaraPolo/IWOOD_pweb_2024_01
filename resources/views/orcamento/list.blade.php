@@ -29,6 +29,9 @@
                 <a href="{{ url('orcamento/create') }}" class="btn btn-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin-left: 10px;">
                     <i class="fa-solid fa-plus"></i> Novo
                 </a>
+                <a href="{{ url('orcamento/PDFOrcamento') }}" class="btn btn-outline-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </a>
             </div>
         </div>
     </form>
@@ -63,9 +66,6 @@
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>
                         </form>
-                        <a href="{{ url('orcamento/PDFOrcamento') }}" class="btn btn-outline-success rounded-pill" style="background-color: #f4f4f4; color: #853609; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
-                            <i class="fa-solid fa-file-pdf"></i>
-                    </a>
                     </div>
                 </div>
             </div>

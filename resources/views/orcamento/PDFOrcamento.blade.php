@@ -5,25 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Relatório PDF</title>
+    <title>Relatório Orçamento</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
-    <p>gerar pdf</p>
+<body style="font-size:12px">
     <h3>{{ $titulo }}</h3>
 
-    <table class="table table-striped">
+    <table class="table table-striped" style="border-collapse; widht:100%;font-size:11px;">
         <thead>
-            <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Contato</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Descrição do Projeto</th>
-                <th scope="col">Tipo de Madeira</th>
-                <th scope="col">Quantidade de madeira</th>
-                <th scope="col">Observação</th>
+            <tr style="background-color:rgb(192, 146, 78) ">
+                <th style="border: 1px solid #ccc">ID</th>
+                <th style="border: 1px solid #ccc">Nome</th>
+                <th style="border: 1px solid #ccc">Contato</th>
+                <th style="border: 1px solid #ccc">Endereço</th>
+                <th style="border: 1px solid #ccc">Descrição do Projeto</th>
+                <th style="border: 1px solid #ccc">Tipo de Madeira</th>
+                <th style="border: 1px solid #ccc">Quantidade de madeira</th>
+                <th style="border: 1px solid #ccc">Observação</th>
             </tr>
         </thead>
         <tbody>
