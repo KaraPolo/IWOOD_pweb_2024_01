@@ -5,19 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Relatório PDF</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-
+    <p>gerar pdf</p>
     <h3>{{ $titulo }}</h3>
 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Contato</th>
                 <th scope="col">Endereço</th>
@@ -25,18 +24,12 @@
                 <th scope="col">Tipo de Madeira</th>
                 <th scope="col">Quantidade de madeira</th>
                 <th scope="col">Observação</th>
-                <th scope="col">Imagem</th>
             </tr>
         </thead>
         <tbody>
             @forelse ($orcamentos as $orcamento)
-                @php
-                    $imagem = !empty($orcamento->imagem) ? $aluno->imagem : 'sem_imagem.jpg';
-                    $srcImagem = public_path()."/storage/".$imagem;
-                @endphp
                 <tr>
                     <th scope="row">{{ $orcamento->id }}</th>
-                    <td><img src="{{ $srcImagem }}" alt="img" style="width: 100px"></td>
                     <td>{{ $orcamento->nome }}</td>
                     <td>{{ $orcamento->contato }}</td>
                     <td>{{ $orcamento->endereco }}</td>
@@ -47,12 +40,11 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6">Sem registro</td>
+                    <td colspan="8">Sem registro</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
-
 
 </body>
 

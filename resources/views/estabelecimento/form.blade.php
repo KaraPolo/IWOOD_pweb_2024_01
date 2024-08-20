@@ -45,8 +45,8 @@
         @endforeach
     </select><br>
 
-    <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
-    <a href="{{ url('estabelecimento') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>
+    <button type="submit" class="btn btn-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px;">Salvar</button>
+    <a href="{{ url('estabelecimento') }}" class="btn btn-primary rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin-left: 10px;">Voltar</a>
 </form>
 
 @stop

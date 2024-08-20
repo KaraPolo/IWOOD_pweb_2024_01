@@ -3,11 +3,11 @@
 @section('titulo', 'Formulário de Orcamento')
 
 @php
-    if (!empty($dado->id)) {
-        $route = route('orcamento.update', $dado->id);
-    } else {
-        $route = route('orcamento.store');
-    }
+if (!empty($dado->id)) {
+$route = route('orcamento.update', $dado->id);
+} else {
+$route = route('orcamento.store');
+}
 @endphp
 
 
@@ -21,7 +21,7 @@
                     <form action="{{ $route }}" method="post">
                         @csrf
                         @if (!empty($dado->id))
-                            @method('put')
+                        @method('put')
                         @endif
                         <input type="hidden" name="id" value="@if (!empty($dado->id)) {{ $dado->id }}@else{{ '' }} @endif">
 
@@ -62,14 +62,10 @@
                             <textarea name="observacao" class="form-control" rows="5">@if (!empty($dado->observacao)) {{ $dado->observacao }} @elseif (!empty(old('observacao'))){{ old('observacao') }} @else {{ '' }} @endif </textarea>
                         </div>
 
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label for="">Imagem do Projeto</label>
-                            <input type="file" name="imagem_projeto" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
-                            <a href="{{ url('orcamento') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>
-                        <button type="button" class="btn btn-primary" style="background-color: #853609; color: #deac6a;" onclick="downloadPdf()">Download em PDF</button>
-                    </form>      
+
+                        <button type="submit" class="btn btn-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px;">Salvar</button>
+                        <a href="{{ url('orcamento') }}" class="btn btn-primary rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin-left: 10px;">Voltar</a>
+                    </form>
                 </div>
             </div>
         </div>

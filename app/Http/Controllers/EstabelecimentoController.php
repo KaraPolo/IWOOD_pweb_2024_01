@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Estabelecimento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Charts\EstabelecimentoChart;
 
 class EstabelecimentoController extends Controller
 {
@@ -151,4 +152,10 @@ class EstabelecimentoController extends Controller
 
         return view("estabelecimento.list", ["dados" => $dados]);
     }
+
+    public function chart(EstabelecimentoChart $estabelecimentoChart)
+    {
+        return view("estabelecimento.chart", ["estabelecimentoChart" => $estabelecimentoChart->build()]);
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Servico;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Charts\ServicoChart;
 
 class ServicoController extends Controller
 {
@@ -125,6 +126,11 @@ class ServicoController extends Controller
         return redirect('servico');
     }
 
+    public function chart(ServicoChart $servicochart)
+    {
+        return view("servico.chart", ["servicochart" => $servicochart->build()]);
+    }
+    
     public function search(Request $request)
     {
         if (!empty($request->nome)) {

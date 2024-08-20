@@ -22,7 +22,6 @@ class OrcamentoSeeder extends Seeder
                 'tipo_madeira' => 'Pinos',
                 'quantidade_unidades' => '3',
                 'observacao' => 'Nada',
-                'imagem_projeto' => 'imagem_exemplo.jpg', //mudar aaqui
                 'created_at' => '2024-03-18 20:49:45',
                 'updated_at' => '2024-03-18 20:49:45',
             ],

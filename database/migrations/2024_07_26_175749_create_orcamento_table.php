@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('tipo_madeira', 100);
             $table->integer('quantidade_unidades');
             $table->string('observacao', 500)->nullable();
-            $table->string('imagem_projeto', 255)->nullable();
             $table->timestamps();
         });
     }

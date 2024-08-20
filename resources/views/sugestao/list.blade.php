@@ -18,8 +18,12 @@
             <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome">
         </div>
         <div class="col-md-4">
-            <button type="submit" class="btn btn-primary" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-            <a href="{{ url('sugestao/create') }}" class="btn btn-success" style="background-color: #853609; color: #deac6a;"><i class="fa-solid fa-plus"></i> Novo</a>
+            <button type="submit" class="btn btn-primary rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px;">
+                <i class="fa-solid fa-magnifying-glass"></i> Buscar
+            </button>
+            <a href="{{ url('sugestao/create') }}" class="btn btn-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin-left: 10px;">
+                <i class="fa-solid fa-plus"></i> Novo
+            </a>
         </div>
     </div>
 </form>
@@ -38,14 +42,14 @@
                     </p>
                     <p class="card-text">{{ $item->sugestao }}</p>
                     <div class="btn-group" role="group" aria-label="Ações">
-                        <a href="{{ route('sugestao.edit', $item->id) }}" class="btn btn-outline-primary" style="background-color: #853609; color: #deac6a;" title="Editar">
-                            Editar
+                        <a href="{{ route('sugestao.edit', $item->id) }}" class="btn btn-outline-primary rounded-pill" style="background-color: #f4f4f4; color: #853609; border-color: #853609; padding: 10px 20px;" title="Editar">
+                            <i class="fa-solid fa-pen-to-square"></i> Editar
                         </a>
                         <form action="{{ route('sugestao.destroy', $item) }}" method="post">
                             @method('DELETE')
                             @csrf
-                            <button type="submit" class="btn btn-outline-danger" style="background-color: #853609; color: #deac6a;" title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
-                                Excluir
+                            <button type="submit" class="btn btn-outline-danger rounded-pill" style="background-color: #f4f4f4; color: #853609; border-color: #853609; padding: 10px 20px; margin-left: 10px;" title="Deletar" onclick="return confirm('Deseja realmente deletar esse registro?')">
+                                <i class="fa-solid fa-trash-can"></i> Excluir
                             </button>
                         </form>
                     </div>

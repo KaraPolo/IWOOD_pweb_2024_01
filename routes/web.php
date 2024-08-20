@@ -14,11 +14,16 @@ Route::get('/', function () {
 Route::resource('estabelecimento', EstabelecimentoController::class);
 Route::post('/estabelecimento/search', [EstabelecimentoController::class, "search"])->name('estabelecimento.search');
 
+Route::get('/estabelecimento/chart', [EstabelecimentoController::class, 'chart'])->name('estabelecimento.chart');
+
 Route::resource('servico', ServicoController::class);
 Route::post('/servico/search', [ServicoController::class, "search"])->name('servico.search');
 
+Route::get('/servico/chart', [ServicoController::class, 'chart'])->name('servico.chart');
+
 Route::resource('orcamento', OrcamentoController::class);
 Route::post('/orcamento/search', [OrcamentoController::class, "search"])->name('orcamento.search');
+Route::get('/orcamento/PDFOrcamento/',[OrcamentoController::class, "PDFOrcamento"])->name('orcamento.PDFOrcamento');
 
 Route::resource('sugestao', SugestaoController::class);
 Route::post('/sugestao/search', [SugestaoController::class, "search"])->name('sugestao.search');
@@ -27,14 +32,5 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/login', function () {
-    return redirect()->route('welcome');
-})->name('login');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 require __DIR__ . '/auth.php';

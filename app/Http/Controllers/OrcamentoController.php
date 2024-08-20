@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Orcamento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class OrcamentoController extends Controller
 {
@@ -29,7 +30,6 @@ class OrcamentoController extends Controller
             'tipo_madeira' => "required|max:100",
             'quantidade_unidades' => "required|max:100",
             'observacao' => "nullable|max:500",
-            'imagem_projeto' => 'required|max:2048',
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -39,8 +39,6 @@ class OrcamentoController extends Controller
             'endereco.max' => "Só é permitido 200 caracteres",
             'descricao_projeto.required' => "O :attribute é obrigatório",
             'descricao_projeto.max' => "Só é permitido 300 caracteres",
-            'imagem_projeto.required' => "A imagem do projeto é obrigatória",
-            'imagem_projeto.max' => "O arquivo deve ter no máximo 2MB",
         ]);
 
         Orcamento::firstOrCreate([
@@ -51,7 +49,6 @@ class OrcamentoController extends Controller
             'tipo_madeira' => $request->tipo_madeira,
             'quantidade_unidades' => $request->quantidade_unidades,
             'observacao' => $request->observacao,
-            'imagem_projeto' => $request->imagem_projeto,
         ]);
 
         return redirect('orcamento');
@@ -81,7 +78,6 @@ class OrcamentoController extends Controller
             'tipo_madeira' => "required|max:100",
             'quantidade_unidades' => "required|max:100",
             'observacao' => "nullable|max:500",
-            'imagem_projeto' => 'required|max:2048',
         ], [
             'nome.required' => "O :attribute é obrigatório",
             'nome.max' => "Só é permitido 100 caracteres",
@@ -91,8 +87,6 @@ class OrcamentoController extends Controller
             'endereco.max' => "Só é permitido 200 caracteres",
             'descricao_projeto.required' => "O :attribute é obrigatório",
             'descricao_projeto.max' => "Só é permitido 300 caracteres",
-            'imagem_projeto.required' => "A imagem do projeto é obrigatória",
-            'imagem_projeto.max' => "O arquivo deve ter no máximo 2MB",
         ]);
 
         $orcamento = Orcamento::findOrFail($id);
@@ -104,7 +98,6 @@ class OrcamentoController extends Controller
             'tipo_madeira' => $request->tipo_madeira,
             'quantidade_unidades' => $request->quantidade_unidades,
             'observacao' => $request->observacao,
-            'imagem_projeto' => $request->imagem_projeto,
         ]);
 
         return redirect('orcamento');
@@ -131,5 +124,20 @@ class OrcamentoController extends Controller
         }
 
         return view("orcamento.list", ["dados" => $dados]);
+    }
+
+       
+    public function PDFOrcamento()
+    {
+        $orcamentos = Orcamento::all();
+        $titulo = 'Relatório de Orçamentos';
+    
+        $data = [
+            'titulo' => $titulo,
+            'orcamentos' => $orcamentos,
+        ];
+    
+        $pdf = PDF::loadView('orcamento.PDFOrcamento', $data);
+        return $pdf->download('relatorio_orcamento.pdf');
     }
 }

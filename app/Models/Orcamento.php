@@ -18,6 +18,5 @@ class Orcamento extends Model
         'tipo_madeira',
         'quantidade_unidades',
         'observacao',
-        'imagem_projeto',
     ];
 }
