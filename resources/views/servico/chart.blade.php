@@ -17,7 +17,7 @@
         <div class="p-6 m-20 bg-white rounded shadow">
             {!! $servicochart->container() !!}
             <button>
-                <a href="{{ url('servico') }}" class="btn btn-primary" style="background-color: #853609; color: rgb(255, 255, 255);">Voltar</a>
+                <a href="{{ url('servico') }}" class="btn text-lg px-3 py-1 rounded-full bg-black hover:bg-gray-500 text-white" title="Voltar à página de Estabelecimentos">Voltar</a>
             </button>
         </div>
 

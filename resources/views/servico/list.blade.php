@@ -48,7 +48,6 @@
                         <strong>Contato:</strong> {{ $item->contato }}<br>
                         <strong>Detalhadamento:</strong> {{ $item->detalhamento }}<br>
                         <strong>Email:</strong> {{ $item->email }}<br>
-                        <strong>Valor Estimado:</strong> R${{ $item->valor_estimado }}<br>
                     </p>
                 </div>
                 <div class="card-footer text-center">

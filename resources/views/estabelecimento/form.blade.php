@@ -37,7 +37,6 @@
     <input type="text" name="imagem" class="form-control"
         value="@if (!empty($dado->imagem)) {{ $dado->imagem}}@elseif (!empty(old('imagem'))){{ old('imagem') }}@else{{ '' }} @endif"><br>
 
-
     <label for="">Categorias</label><br>
     <select name="categoria_id" class="form-select">
         @foreach ($categorias as $item)

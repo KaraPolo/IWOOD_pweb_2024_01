@@ -37,10 +37,6 @@
     <input type="text" name="detalhamento" class="form-control"
         value="@if (!empty($dado->detalhamento)) {{ $dado->detalhamento }}@elseif (!empty(old('detalhamento'))){{ old('detalhamento') }}@else{{ '' }} @endif"><br>
 
-    <label for="">Valor Estimado</label><br>
-    <input type="text" name="valor_estimado" class="form-control"
-        value="@if (!empty($dado->valor_estimado)) {{ $dado->valor_estimado }}@elseif (!empty(old('valor_estimado'))){{ old('valor_estimado') }}@else{{ '' }} @endif"><br>
-
     <button type="submit" class="btn btn-success" style="background-color: #853609; color: #deac6a;">Salvar</button>
     <a href="{{ url('servico') }}" class="btn btn-primary" style="background-color: #853609; color: #deac6a;">Voltar</a>
 </form>

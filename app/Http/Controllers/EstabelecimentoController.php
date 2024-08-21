@@ -7,6 +7,7 @@ use App\Models\Estabelecimento;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Charts\EstabelecimentoChart;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EstabelecimentoController extends Controller
 {
@@ -137,6 +138,25 @@ class EstabelecimentoController extends Controller
         return redirect('estabelecimento');
     }
 
+    public function chart(EstabelecimentoChart $estabelecimentochart)
+    {
+        return view("estabelecimento.chart", ["estabelecimentochart" => $estabelecimentochart->build()]);
+    }
+
+    public function PDFEstabelecimento()
+    {
+        $estabelecimentos = Estabelecimento::all();
+        $titulo = 'Relatório de Estabelecimentos';
+    
+        $data = [
+            'titulo' => $titulo,
+            'estabelecimentos' => $estabelecimentos,
+        ];
+    
+        $pdf = PDF::loadView('estabelecimento.PDFEstabelecimento', $data);
+        return $pdf->download('estabelecimento.pdf');
+    }
+
     public function search(Request $request)
     {
         if (!empty($request->nome)) {
@@ -151,11 +171,6 @@ class EstabelecimentoController extends Controller
         // dd($dados);
 
         return view("estabelecimento.list", ["dados" => $dados]);
-    }
-
-    public function chart(EstabelecimentoChart $estabelecimentoChart)
-    {
-        return view("estabelecimento.chart", ["estabelecimentoChart" => $estabelecimentoChart->build()]);
     }
 
 }

@@ -1,6 +1,6 @@
 @extends('base')
 @section('conteudo')
-@section('titulo', 'Sugestão')
+@section('titulo', 'Estabelecimento -')
 
 
 <div style="background: linear-gradient(to bottom, #853609, #deac6a); color: white; height: 200px; display: flex; justify-content: center; align-items: center; border-radius: 15px; font-family: Arial, sans-serif;">
@@ -22,7 +22,7 @@
                 <label for="">Buscar Profissional:</label><br>
                 <input type="text" name="nome" class="form-control"><br>
             </div>
-            <div class="col-4" style="margin-top: 22px;">
+            <div class="col-6" style="margin-top: 22px;">
                 <button type="submit" class="btn btn-primary rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px;">
                     <i class="fa-solid fa-magnifying-glass"></i> Buscar
                 </button>
@@ -32,7 +32,7 @@
                 <a href="{{ route('estabelecimento.chart') }}" class="btn btn-primary rounded-pill" title="Ver Gráfico" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
                     <i class="fa-solid fa-chart-bar"></i>
                 </a>
-                <a href="{{ url('orcamento/PDFOrcamento') }}" class="btn btn-outline-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
+                <a href="{{ url('estabelecimento/PDFEstabelecimento') }}" class="btn btn-outline-success rounded-pill" style="background-color: #853609; color: #ffffff; border-color: #853609; padding: 10px 20px; margin: 0 5px;">
                     <i class="fa-solid fa-file-pdf"></i>
                 </a>
             </div>

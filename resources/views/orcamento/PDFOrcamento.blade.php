@@ -13,7 +13,7 @@
 <body style="font-size:12px">
     <h3>{{ $titulo }}</h3>
 
-    <table class="table table-striped" style="border-collapse; widht:100%;font-size:11px;">
+    <table class="table table-striped" style="border-collapse: collapse;widht:100%;font-size:11px;">
         <thead>
             <tr style="background-color:rgb(192, 146, 78) ">
                 <th style="border: 1px solid #ccc">ID</th>
